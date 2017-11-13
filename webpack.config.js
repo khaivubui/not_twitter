@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './frontend/not_twitter.js',
+  entry: './frontend/not_twitter.jsx',
   output: {
       path: path.resolve(__dirname, 'public'),
       filename: "bundle.js"
@@ -10,11 +10,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: [/\.js$/],
+        test: [/\.jsx?$/],
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['env']
+          presets: ['env', 'react']
         }
       }
     ]
