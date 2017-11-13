@@ -2,9 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Nav = () =>
-<div>
-  <Link to='/login' className="cyan lighten-1 btn">Login</Link>
-  <Link to='/register' className="cyan lighten-1 btn">Register</Link>
-</div>;
+<nav className="nav-wrapper">
+  <Link to='/' className="left brand-logo">Not-Twitter</Link>
+  <ul className="right">
+    <li><Link to='/login'>Login</Link></li>
+    <li><Link to='/register'>Register</Link></li>
+  </ul>
+</nav>;
 
 export default Nav;
