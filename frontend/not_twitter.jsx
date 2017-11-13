@@ -7,10 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloadedState = {
     session: {
       currentUser: null,
-    },
-    entities: {},
-    ui: {},
-    errors: []
+    }
   };
 
   const store = configureStore(preloadedState);
