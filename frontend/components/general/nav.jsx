@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import Cookies from 'js-cookie';
 
 export const GET_USER = 'GET_USER';
 
@@ -24,9 +25,10 @@ class Nav extends React.Component {
 }
 
 const getUserActionCreator = _ => {
-  const request = axios.get(
-    'https://sts-code-challenge.herokuapp.com/api/user'
-  );
+  const request = axios({
+    url: 'https://sts-code-challenge.herokuapp.com/api/user',
+    headers: { Authorization: Cookies.get('Authorization') }
+  });
 
   return {
     type: GET_USER,

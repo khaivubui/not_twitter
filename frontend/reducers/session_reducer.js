@@ -1,5 +1,6 @@
 import { LOGIN } from '../components/auth/login';
 import { REGISTER } from '../components/auth/register';
+import { GET_USER } from '../components/general/nav';
 
 const nullUser = {
   currentUser: null
@@ -10,6 +11,7 @@ const sessionReducer = (state = nullUser, action) => {
   switch (action.type) {
     case LOGIN:
     case REGISTER:
+    case GET_USER:
       const data = action.payload.data;
       if (data) {
         return {currentUser: data.user};
