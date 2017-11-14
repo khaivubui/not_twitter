@@ -56,6 +56,11 @@ export default class Login extends React.Component {
               </label>
             </div>
           </div>
+          <div className="row">
+            <input type="submit"
+                   className="waves-effect waves-light btn"
+                   value="Register New Account"/>
+          </div>
         </form>
       </div>
     );
