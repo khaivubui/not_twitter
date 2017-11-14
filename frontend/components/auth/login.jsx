@@ -45,21 +45,9 @@ export default class Login extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s12">
-              <input id="username"
-                     type="text"
-                     className="validate"
-                     value={this.state.username}
-                     onChange={e => this.update(e, 'username')}/>
-              <label htmlFor="username" className="active">
-                Username
-              </label>
-            </div>
-          </div>
-          <div className="row">
             <input type="submit"
                    className="waves-effect waves-light btn"
-                   value="Register New Account"/>
+                   value="Log In"/>
           </div>
         </form>
       </div>
