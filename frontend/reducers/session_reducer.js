@@ -1,6 +1,6 @@
 import { LOGIN } from '../components/auth/login';
 import { REGISTER } from '../components/auth/register';
-import { GET_USER } from '../components/general/nav';
+import { GET_USER, LOGOUT } from '../components/general/nav';
 
 const nullUser = {
   currentUser: null
@@ -18,6 +18,8 @@ const sessionReducer = (state = nullUser, action) => {
       } else {
         return nullUser;
       }
+    case LOGOUT:
+      return nullUser;
     default:
       return state;
   }
