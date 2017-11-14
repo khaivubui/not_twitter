@@ -1,5 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
+
+const LOGIN = 'LOGIN';
 
 class Login extends React.Component {
   constructor (props) {
@@ -56,4 +59,27 @@ class Login extends React.Component {
   }
 }
 
-export default connect()(Login);
+const logInActionCreator = formData => {
+  const request = axios.post(
+    'https://sts-code-challenge.herokuapp.com/api/users/login',
+    formData
+  );
+
+  return {
+    type: LOGIN,
+    payload: request
+  };
+};
+
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  logIn: formData => dispatch(logInActionCreator(formData))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
