@@ -11,6 +11,18 @@ export default class Login extends React.Component {
               <label htmlFor="email">Email</label>
             </div>
           </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <input id="password" type="password" className="validate"/>
+              <label htmlFor="password">Password</label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <input id="username" type="text" className="validate"/>
+              <label htmlFor="username">Username</label>
+            </div>
+          </div>
         </form>
       </div>
     );
