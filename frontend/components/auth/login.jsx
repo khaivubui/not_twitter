@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-const LOGIN = 'LOGIN';
+export const LOGIN = 'LOGIN';
 
 class Login extends React.Component {
   constructor (props) {
