@@ -9,8 +9,7 @@ class Login extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: '',
-      username: ''
+      password: ''
     };
   }
 
@@ -20,10 +19,15 @@ class Login extends React.Component {
     });
   }
 
+  logIn (e) {
+    e.preventDefault();
+    this.props.logIn({user: this.state});
+  }
+
   render () {
     return (
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={e => this.logIn(e)}>
           <div className="row">
             <div className="input-field col s12">
               <input id="email"
