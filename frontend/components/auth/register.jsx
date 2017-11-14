@@ -1,6 +1,10 @@
 import React from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class Register extends React.Component {
+export const REGISTER = 'REGISTER';
+
+class Register extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -16,10 +20,15 @@ export default class Register extends React.Component {
     });
   }
 
+  register (e) {
+    e.preventDefault();
+    this.props.register({user: this.state});
+  }
+
   render () {
     return (
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={e => this.register(e)}>
           <div className="row">
             <div className="input-field col s12">
               <input id="email"
@@ -66,3 +75,28 @@ export default class Register extends React.Component {
     );
   }
 }
+
+const registerActionCreator = formData => {
+  const request = axios.post(
+    'https://sts-code-challenge.herokuapp.com/api/users',
+    formData
+  );
+
+  return {
+    type: REGISTER,
+    payload: request
+  };
+};
+
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  register: formData => dispatch(registerActionCreator(formData))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Register);
